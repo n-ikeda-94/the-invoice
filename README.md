@@ -23,23 +23,31 @@
 |user_id|integer|null: false, foreign_key: true|
 ### Association
 - belongs_to :user
-- has_many :templates
+- has_many :histories
 
-## templatesテーブル
+## bill_dataテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|text|null: false|
+|postcode|text|null: false|
+|address|text|null: false|
+|bank|text|null: false|
+|accountType|text|null: false|
+|accountNumber|text|null: false|
+|logo|text||
+|seal|text||
+|template|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
 |company_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :company
-- has_many :items
+- has_many :outputs
 
-## itemsテーブル
+## outputテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
-|positionX|integer|null: false|
-|positionY|integer|null: false|
-|template_id|integer|null: false, foreign_key: true|
+|bill_data_id|text|null: false, foreign_key: true|
+|template|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|company_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :template
+- belongs_to :bill_data

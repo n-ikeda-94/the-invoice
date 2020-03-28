@@ -1,53 +1,84 @@
 # README
 
 # the-invoice DB設計
-## usersテーブル
-|Column|Type|Options|
-|------|----|-------|
-|name|string|null: false|
-|password|string|null: false|
-### Association
-- has_many :companies
-
 ## companiesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
-|postcode|text|null: false|
-|address|text|null: false|
-|bank|text|null: false|
-|accountType|text|null: false|
-|accountNumber|text|null: false|
+|name|string|null: false|
+|postcode|string|null: false|
+|address|string|null: false|
+|bank|string|null: false|
+|accountType|string|null: false|
+|accountNumber|string|null: false|
 |logo|text||
 |seal|text||
-|user_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :user
-- has_many :histories
+- has_many :invoices
+- has_many :departments
 
-## bill_dataテーブル
+## invoiceテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|text|null: false|
-|postcode|text|null: false|
-|address|text|null: false|
-|bank|text|null: false|
-|accountType|text|null: false|
-|accountNumber|text|null: false|
+|number|integer|null: false|
+|company_name|string|null: false|
+|postcode|string|null: false|
+|address|string|null: false|
+|bank|string|null: false|
+|accountType|string|null: false|
+|accountNumber|string|null: false|
 |logo|text||
 |seal|text||
-|template|integer|null: false|
-|user_id|integer|null: false, foreign_key: true|
-|company_id|integer|null: false, foreign_key: true|
 ### Association
-- has_many :outputs
+- belongs_to :company
+- has_many :statements
 
-## outputテーブル
+## statementテーブル
 |Column|Type|Options|
 |------|----|-------|
-|bill_data_id|text|null: false, foreign_key: true|
-|template|integer|null: false|
-|user_id|integer|null: false, foreign_key: true|
+|invoice_id|integer|null: false, foreign_key: true|
+|number|integer|null: false|
+|event_id|integer|null: false, foreign_key: true|
+|text|string|null: false|
+|unit_price|integer|null: false|
+|quantity|integer|null: false|
+|tax_rate|integer|null: false|
+|sales_tax|integer|null: false|
+|sub_total|integer|null: false|
+
+### Association
+- belongs_to :invoice
+
+## departmentテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
 |company_id|integer|null: false, foreign_key: true|
 ### Association
-- belongs_to :bill_data
+- belongs_to :company
+
+## clientテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|postcode|string|null: false|
+|address|string|null: false|
+|company_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :company
+
+## accountテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+### Association
+- has_many :events
+
+## eventテーブル
+|Column|Type|Options|
+|------|----|-------|
+|name|string|null: false|
+|account_id|integer|null: false, foreign_key: true|
+### Association
+- belongs_to :account
+
+

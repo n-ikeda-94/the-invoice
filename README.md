@@ -24,10 +24,15 @@
 |postcode|string|null: false|
 |address|string|null: false|
 |bank|string|null: false|
-|accountType|string|null: false|
-|accountNumber|string|null: false|
+|bank_account_type|string|null: false|
+|bank_account_number|string|null: false|
 |logo|text||
 |seal|text||
+|date|string|null: false|
+|client_name|string|null: false|
+|client_address|string|null: false|
+|amount|integer|null: false|
+|payment_deadline|string|null: false|
 ### Association
 - belongs_to :company
 - has_many :statements
@@ -44,7 +49,6 @@
 |tax_rate|integer|null: false|
 |sales_tax|integer|null: false|
 |sub_total|integer|null: false|
-
 ### Association
 - belongs_to :invoice
 
@@ -70,6 +74,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
+|attribution|integer|null: false|
 ### Association
 - has_many :events
 

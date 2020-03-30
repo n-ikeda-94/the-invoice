@@ -16,7 +16,7 @@
 - has_many :invoices
 - has_many :departments
 
-## invoiceテーブル
+## invoicesテーブル
 |Column|Type|Options|
 |------|----|-------|
 |number|integer|null: false|
@@ -37,7 +37,7 @@
 - belongs_to :company
 - has_many :statements
 
-## statementテーブル
+## statementsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |invoice_id|integer|null: false, foreign_key: true|
@@ -52,7 +52,7 @@
 ### Association
 - belongs_to :invoice
 
-## departmentテーブル
+## departmentsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -60,7 +60,7 @@
 ### Association
 - belongs_to :company
 
-## clientテーブル
+## clientsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -70,7 +70,7 @@
 ### Association
 - belongs_to :company
 
-## accountテーブル
+## accountsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
@@ -78,7 +78,7 @@
 ### Association
 - has_many :events
 
-## eventテーブル
+## eventsテーブル
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|

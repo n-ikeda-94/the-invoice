@@ -8,8 +8,8 @@
 |postcode|string|null: false|
 |address|string|null: false|
 |bank|string|null: false|
-|accountType|string|null: false|
-|accountNumber|string|null: false|
+|bank_account_type|string|null: false|
+|bank_account_number|string|null: false|
 |logo|text||
 |seal|text||
 ### Association

@@ -1,3 +1,7 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :companies, only: [:new, :create]
+  resources :invoices, only: [:index, :new, :create]
+  resources :statements, only: [:new, :create]
+  resources :departments, only: [:new, :create]
+  resources :clients, only: [:new, :create]
 end

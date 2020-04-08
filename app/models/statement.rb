@@ -1,7 +1,3 @@
 class Statement < ApplicationRecord
-  def new
-  end
-
-  def create
-  end
+  belongs_to :invoice
 end

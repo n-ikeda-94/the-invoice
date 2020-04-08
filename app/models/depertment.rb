@@ -1,7 +1,3 @@
 class Depertment < ApplicationRecord
-  def new
-  end
-
-  def create
-  end
+  belongs_to :company
 end
